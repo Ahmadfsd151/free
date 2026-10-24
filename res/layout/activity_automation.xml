@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/bg_dark" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/paypal_blue" android:id="@id/btnBack" android:padding="6.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="← Back" />
+    <TextView android:textSize="22.0sp" android:textStyle="bold" android:textColor="@color/text_light" android:id="@id/tvHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="Automation Running" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/text_dim" android:id="@id/tvSubHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="PayPal · Pakistan" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <LinearLayout android:orientation="vertical" android:background="@color/bg_card" android:padding="12.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="11.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Attempts" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/text_light" android:id="@id/tvAttempts" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:background="@color/bg_card" android:padding="12.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="8.0dp">
+            <TextView android:textSize="11.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Success" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/success_green" android:id="@id/tvSuccess" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:background="@color/bg_card" android:padding="12.0dp" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="8.0dp">
+            <TextView android:textSize="11.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Failed" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/error_red" android:id="@id/tvFailed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/paypal_blue" android:id="@id/tvCurrentNumber" android:background="@color/bg_card" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="Current: —" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="Live Log" />
+    <ScrollView android:id="@id/scrollLog" android:background="@color/bg_card" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="6.0dp" android:layout_weight="1.0">
+        <TextView android:textSize="11.0sp" android:textColor="@color/text_light" android:id="@id/tvLog" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:fontFamily="monospace" />
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp">
+        <Button android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/btnPause" android:layout_width="0.0dp" android:layout_height="52.0dp" android:text="⏸ Pause" android:layout_weight="1.0" android:backgroundTint="@color/paypal_blue" />
+        <Button android:textSize="13.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/btnStop" android:layout_width="0.0dp" android:layout_height="52.0dp" android:text="⏹ Stop" android:layout_weight="1.0" android:layout_marginStart="8.0dp" android:backgroundTint="@color/error_red" />
+    </LinearLayout>
+</LinearLayout>

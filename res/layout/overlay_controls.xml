@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="end" android:orientation="vertical" android:id="@id/llExpanded" android:background="#80000000" android:padding="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageButton android:id="@id/btnToggle" android:background="@android:color/transparent" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@drawable/ic_pause" android:tint="#ffffff" android:contentDescription="Pause/Resume" />
+        <ImageButton android:id="@id/btnClose" android:background="@android:color/transparent" android:layout_width="48.0dp" android:layout_height="48.0dp" android:layout_marginTop="4.0dp" android:src="@android:drawable/ic_menu_close_clear_cancel" android:tint="#ff0000" android:contentDescription="Stop" />
+        <ImageButton android:layout_gravity="center_horizontal" android:id="@id/btnMinimize" android:background="@android:color/transparent" android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_marginTop="4.0dp" android:src="@android:drawable/arrow_down_float" android:tint="#ffffff" />
+    </LinearLayout>
+    <ImageView android:id="@id/ivMinimized" android:background="#80000000" android:padding="8.0dp" android:visibility="gone" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@android:drawable/ic_menu_compass" android:tint="#00ff00" />
+</FrameLayout>

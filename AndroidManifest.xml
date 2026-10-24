@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" package="com.real.earn.paypal" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+    <queries>
+        <package android:name="com.paypal.android.p2pmobile"/>
+        <package android:name="com.zhiliaoapp.musically"/>
+        <package android:name="com.ss.android.ugc.trill"/>
+    </queries>
+    <permission android:name="com.real.earn.paypal.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.real.earn.paypal.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="false" android:icon="@drawable/logo" android:label="@string/app_name" android:name="com.real.earn.paypal.App" android:roundIcon="@drawable/logo" android:supportsRtl="true" android:theme="@style/Theme.RealEarnPayPal" android:usesCleartextTraffic="true">
+        <provider android:authorities="com.real.earn.paypal.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <receiver android:exported="true" android:name="com.real.earn.paypal.admin.MyDeviceAdminReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin" android:resource="@xml/device_admin_receiver"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+                <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE"/>
+                <action android:name="android.app.action.MANAGED_PROFILE_PROVISIONED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.real.earn.paypal.admin.WorkProfileApkInstaller">
+            <intent-filter>
+                <action android:name="com.real.earn.paypal.ACTION_INSTALL_APK"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="com.real.earn.paypal.SplashActivity" android:theme="@style/Theme.RealEarnPayPal">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.real.earn.paypal.LoginActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.CodeVerifyActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.DashboardActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.AppSelectActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.VirtualProfileActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.ServiceSelectActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.ServiceBrowseActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.PrefixInputActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.CountrySelectActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.PermissionActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.AutomationActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="false" android:name="com.real.earn.paypal.MainActivity" android:theme="@style/Theme.RealEarnPayPal"/>
+        <activity android:exported="true" android:name="com.real.earn.paypal.WorkProfileInstallerActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.real.earn.paypal.voice.PayPalInteractionService" android:permission="android.permission.BIND_VOICE_INTERACTION">
+            <intent-filter>
+                <action android:name="android.service.voice.VoiceInteractionService"/>
+            </intent-filter>
+            <meta-data android:name="android.voice_interaction" android:resource="@xml/voice_interaction_service"/>
+        </service>
+        <service android:exported="true" android:name="com.real.earn.paypal.voice.PayPalInteractionSessionService" android:permission="android.permission.BIND_VOICE_INTERACTION"/>
+        <service android:exported="true" android:isAccessibilityTool="true" android:name="com.real.earn.paypal.service.PayPalAccessibilityService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service_config"/>
+        </service>
+        <service android:exported="false" android:foregroundServiceType="specialUse" android:name="com.real.earn.paypal.service.AutomationService">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="UI automation"/>
+        </service>
+        <provider android:authorities="com.real.earn.paypal.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

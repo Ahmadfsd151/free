@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/bg_dark" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/paypal_blue" android:id="@id/btnBack" android:padding="8.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="← Back" />
+    <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="@color/text_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="Search with Prefix" />
+    <TextView android:textSize="13.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="Apna prefix likho aur matching files chuno" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+        <EditText android:textSize="16.0sp" android:textColor="@color/text_light" android:textColorHint="@color/text_dim" android:id="@id/etPrefix" android:background="@drawable/bg_input" android:layout_width="0.0dp" android:layout_height="52.0dp" android:hint="e.g. 213 or 92" android:maxLength="10" android:layout_weight="1.0" android:inputType="number" android:imeOptions="actionSearch" android:paddingHorizontal="16.0dp" />
+        <Button android:textStyle="bold" android:textColor="@color/white" android:id="@id/btnSearch" android:layout_width="wrap_content" android:layout_height="52.0dp" android:text="Search" android:layout_marginStart="8.0dp" android:backgroundTint="@color/paypal_blue" android:paddingHorizontal="24.0dp" />
+    </LinearLayout>
+    <ProgressBar android:layout_gravity="center_horizontal" android:id="@id/progressBar" android:visibility="gone" android:layout_width="32.0dp" android:layout_height="32.0dp" android:layout_marginTop="24.0dp" android:indeterminateTint="@color/paypal_blue" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/text_dim" android:gravity="center" android:id="@id/tvEmpty" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="16.0dp" android:layout_weight="1.0" />
+</LinearLayout>

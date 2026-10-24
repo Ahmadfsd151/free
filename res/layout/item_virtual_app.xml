@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" app:cardBackgroundColor="#1e1e1e" app:cardCornerRadius="12.0dp" app:cardElevation="2.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/imgAppIcon" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@android:drawable/sym_def_app_icon" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/txtAppName" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="App Name" android:layout_weight="1.0" android:layout_marginStart="16.0dp" />
+        <Button android:textSize="14.0sp" android:textColor="@android:color/white" android:id="@id/btnOpenApp" android:layout_width="wrap_content" android:layout_height="40.0dp" android:text="Open" android:backgroundTint="#4caf50" app:cornerRadius="8.0dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

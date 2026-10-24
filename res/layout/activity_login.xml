@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/bg_dark" android:padding="24.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="@color/text_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Real Earning Platform" />
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="@color/paypal_blue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="PayPal Automation" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" android:text="Telegram ID ya Username" />
+        <EditText android:textSize="16.0sp" android:textColor="@color/text_light" android:textColorHint="@color/text_dim" android:id="@id/etTelegramInput" android:background="@drawable/bg_input" android:layout_width="match_parent" android:layout_height="56.0dp" android:layout_marginTop="8.0dp" android:hint="123456789 ya @username" android:inputType="text" android:paddingHorizontal="16.0dp" android:autofillHints="" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="Pehle Telegram bot pe /start karo, phir yahan ID daalo." />
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28.0dp">
+            <Button android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/btnContinue" android:layout_width="match_parent" android:layout_height="56.0dp" android:text="Continue" android:backgroundTint="@color/paypal_blue" />
+            <ProgressBar android:layout_gravity="end|center" android:id="@id/progressBar" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="28.0dp" android:layout_marginEnd="20.0dp" android:indeterminateTint="@color/white" />
+        </FrameLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

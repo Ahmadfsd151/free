@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="#121212" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageButton android:id="@id/btnBack" android:background="?selectableItemBackgroundBorderless" android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@drawable/ic_arrow_back" app:tint="@android:color/white" />
+        <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/tvTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:text="Permission Required" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp">
+            <LinearLayout android:orientation="horizontal" android:id="@id/rowAccessibility" android:background="?selectableItemBackground" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Accessibility Service" android:layout_weight="1.0" />
+                <TextView android:textColor="#ff5252" android:id="@id/tvAccessibilityState" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✘ Tap to enable" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/rowOverlay" android:background="?selectableItemBackground" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Draw Over Other Apps" android:layout_weight="1.0" />
+                <TextView android:textColor="#ff5252" android:id="@id/tvOverlayState" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✘ Tap to enable" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/rowBattery" android:background="?selectableItemBackground" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Ignore Battery Optimization" android:layout_weight="1.0" />
+                <TextView android:textColor="#ff5252" android:id="@id/tvBatteryState" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✘ Tap to enable" />
+            </LinearLayout>
+        </LinearLayout>
+        <View android:background="#333333" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginVertical="16.0dp" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/rowOldAccountMethod" android:padding="12.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textStyle="bold" android:textColor="@android:color/white" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Old Account Method (Skip Flight/Data)" android:layout_weight="1.0" />
+            <Switch android:id="@id/switchOldAccountMethod" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/rowAutoFlight" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@android:color/white" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Auto Flight Mode" android:layout_weight="1.0" />
+            <Switch android:id="@id/switchAutoFlight" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/rowCaptchaAlarm" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@android:color/white" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Captcha Alarm" android:layout_weight="1.0" />
+            <Switch android:id="@id/switchCaptchaAlarm" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView android:textSize="12.0sp" android:textColor="#aaaaaa" android:id="@id/tvSelectedSound" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="Default system alarm" android:paddingStart="12.0dp" />
+        <Button android:textColor="@android:color/white" android:id="@id/btnChooseSound" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="Choose Sound" android:layout_marginStart="12.0dp" android:backgroundTint="#333333" />
+        <Button android:textSize="18.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/btnStart" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="32.0dp" android:text="Start Automation" android:backgroundTint="#4caf50" app:cornerRadius="16.0dp" />
+    </LinearLayout>
+</ScrollView>

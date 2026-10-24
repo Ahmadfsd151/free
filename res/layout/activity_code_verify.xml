@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/bg_dark" android:padding="24.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="@color/text_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Verification Code" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/text_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="6-digit code bot pe bheja gaya hai" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32.0dp">
+            <EditText android:id="@id/otp1" style="@style/OtpBox" />
+            <EditText android:id="@id/otp2" style="@style/OtpBox" />
+            <EditText android:id="@id/otp3" style="@style/OtpBox" />
+            <EditText android:id="@id/otp4" style="@style/OtpBox" />
+            <EditText android:id="@id/otp5" style="@style/OtpBox" />
+            <EditText android:id="@id/otp6" style="@style/OtpBox" />
+        </LinearLayout>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32.0dp">
+            <Button android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/btnVerify" android:layout_width="match_parent" android:layout_height="56.0dp" android:text="Verify" android:backgroundTint="@color/paypal_blue" />
+            <ProgressBar android:layout_gravity="end|center" android:id="@id/progressBar" android:visibility="gone" android:layout_width="28.0dp" android:layout_height="28.0dp" android:layout_marginEnd="20.0dp" android:indeterminateTint="@color/white" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+            <TextView android:textSize="14.0sp" android:textColor="@color/text_dim" android:id="@id/btnBack" android:padding="12.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Wapas" />
+            <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/paypal_blue" android:id="@id/btnResend" android:padding="12.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Code dobara bhejo" android:layout_marginStart="24.0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
