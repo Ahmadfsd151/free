@@ -1,49 +1,73 @@
 
-name: Build Testing APK
+name: Build Android Testing APK
 
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 permissions:
   contents: read
 
 jobs:
   build:
+    name: Rebuild and Sign APK
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Set Up Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
+      - name: Check Project Files
+        run: |
+          echo "Checking decoded Android project..."
+
+          test -f AndroidManifest.xml || {
+            echo "ERROR: AndroidManifest.xml not found in repository root."
+            exit 1
+          }
+
+          test -f apktool.yml || {
+            echo "ERROR: apktool.yml not found in repository root."
+            exit 1
+          }
+
+          echo "Android project files found."
+
       - name: Download Apktool
         run: |
-          curl -fsSL \
-            https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar \
+          curl -fL --retry 3 \
+            "https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar" \
             -o apktool.jar
-          echo "dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423  apktool.jar" \
-            | sha256sum -c -
 
-      - name: Rebuild APK
+          test -s apktool.jar
+          java -jar apktool.jar --version
+
+      - name: Rebuild Android APK
         run: |
-          test -f apktool.yml
-          test -f AndroidManifest.xml
           java -jar apktool.jar b . -o app-unsigned.apk
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+          test -s app-unsigned.apk
 
-      - name: Install Android build tools
-        run: sdkmanager "build-tools;35.0.0"
+          echo "APK rebuild completed."
 
-      - name: Sign testing APK
+      - name: Set Up Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
+
+      - name: Install Android Build Tools
+        run: |
+          sdkmanager "build-tools;35.0.0"
+
+      - name: Generate Testing Signing Key
         run: |
           keytool -genkeypair \
             -keystore debug.keystore \
@@ -51,20 +75,35 @@ jobs:
             -keypass android \
             -alias androiddebugkey \
             -dname "CN=Android Debug,O=Android,C=US" \
-            -keyalg RSA -keysize 2048 -validity 10000
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000
 
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign \
+      - name: Align and Sign APK
+        run: |
+          BUILD_TOOLS="$ANDROID_HOME/build-tools/35.0.0"
+
+          "$BUILD_TOOLS/zipalign" \
+            -p -f 4 \
+            app-unsigned.apk \
+            app-aligned.apk
+
+          "$BUILD_TOOLS/apksigner" sign \
             --ks debug.keystore \
             --ks-pass pass:android \
             --key-pass pass:android \
+            --ks-key-alias androiddebugkey \
             --out app-testing.apk \
-            app-unsigned.apk
+            app-aligned.apk
 
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify app-testing.apk
+          "$BUILD_TOOLS/apksigner" verify --verbose app-testing.apk
 
-      - name: Upload testing APK
+          echo "Signed testing APK is ready."
+
+      - name: Upload Testing APK
         uses: actions/upload-artifact@v4
         with:
           name: android-testing-apk
           path: app-testing.apk
+          if-no-files-found: error
           retention-days: 7
