@@ -1,11 +1,9 @@
 
-name: Android CI
+name: Build Testing APK
 
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
-  pull_request:
     branches: ["main"]
 
 permissions:
@@ -19,50 +17,54 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Inspect repository
-        run: |
-          echo "Repository files:"
-          ls -la
-          echo "Gradle files:"
-          find . -maxdepth 5 -type f \( \
-            -name gradlew -o \
-            -name settings.gradle -o \
-            -name settings.gradle.kts \
-            \) -print
-
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
-      - name: Find Android project
-        id: project
-        shell: bash
+      - name: Download Apktool
         run: |
-          WRAPPER=$(find . -maxdepth 5 -type f \
-            -name gradlew -not -path '*/.gradle/*' \
-            -print -quit)
+          curl -fsSL \
+            https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar \
+            -o apktool.jar
+          echo "dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423  apktool.jar" \
+            | sha256sum -c -
 
-          if [ -z "$WRAPPER" ]; then
-            echo "ERROR: No gradlew file found."
-            echo "The repository may not contain a complete Gradle project."
-            exit 1
-          fi
-
-          DIR=$(dirname "$WRAPPER")
-          echo "dir=$DIR" >> "$GITHUB_OUTPUT"
-
-      - name: Build testing APK
-        working-directory: ${{ steps.project.outputs.dir }}
+      - name: Rebuild APK
         run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          test -f apktool.yml
+          test -f AndroidManifest.xml
+          java -jar apktool.jar b . -o app-unsigned.apk
 
-      - name: Upload APK
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android build tools
+        run: sdkmanager "build-tools;35.0.0"
+
+      - name: Sign testing APK
+        run: |
+          keytool -genkeypair \
+            -keystore debug.keystore \
+            -storepass android \
+            -keypass android \
+            -alias androiddebugkey \
+            -dname "CN=Android Debug,O=Android,C=US" \
+            -keyalg RSA -keysize 2048 -validity 10000
+
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" sign \
+            --ks debug.keystore \
+            --ks-pass pass:android \
+            --key-pass pass:android \
+            --out app-testing.apk \
+            app-unsigned.apk
+
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify app-testing.apk
+
+      - name: Upload testing APK
         uses: actions/upload-artifact@v4
         with:
           name: android-testing-apk
-          path: "**/build/outputs/apk/debug/*.apk"
-          if-no-files-found: error
+          path: app-testing.apk
           retention-days: 7
