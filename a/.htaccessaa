@@ -1,0 +1,32 @@
+Options -Indexes
+
+# Block direct access to data files
+<FilesMatch "\.(json|php)$">
+  <If "%{REQUEST_URI} =~ m#^/data/#">
+    Order allow,deny
+    Deny from all
+  </If>
+</FilesMatch>
+
+<Directory "data">
+  Order allow,deny
+  Deny from all
+</Directory>
+
+# PHP execution block in uploads
+<Directory "uploads">
+  php_flag engine off
+  Options -ExecCGI
+  AddType text/plain .php .php3 .php4 .php5 .phtml
+</Directory>
+
+# Max upload size
+php_value upload_max_filesize 5M
+php_value post_max_size 20M
+
+DirectoryIndex index.php index.html
+
+# Uncomment after SSL setup:
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /data/
+Disallow: /includes/
+Disallow: /cgi-bin/
+Disallow: /submit_query.php
+Disallow: /reset_password.php
+
+Sitemap: https://khawarenterprises.org/sitemap.xml

@@ -1,0 +1,82 @@
+# ── Khawar Enterprises — Apache config (SEO + performance + security) ──
+# NOTE: <Directory> blocks are NOT allowed in .htaccess (they cause HTTP 500).
+# Only FilesMatch / mod_rewrite / mod_headers / mod_expires directives here.
+
+Options -Indexes
+DirectoryIndex index.php index.html
+
+AddDefaultCharset UTF-8
+AddType image/webp .webp
+AddType font/woff2 .woff2
+AddType image/svg+xml .svg
+
+# ── Block direct access to private data / includes ──
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(data|includes)/ - [F,L]
+</IfModule>
+
+# ── Redirect to HTTPS (uncomment AFTER SSL certificate is active) ──
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# </IfModule>
+# Canonical host: strip www (uncomment after SSL is set up)
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+#   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+# </IfModule>
+
+# ── Gzip compression ──
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# ── Browser caching ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# ── Dynamic pages: hamesha revalidate (naye changes foran dikhen) ──
+# Warna browser 2 din purana HTML serve karta rehta hai.
+<FilesMatch "\.(php|phtml|html|htm)$">
+  <IfModule mod_expires.c>
+    ExpiresByType text/html "access plus 0 seconds"
+  </IfModule>
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </IfModule>
+</FilesMatch>
+
+# ── Security + SEO headers ──
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ── Protect sensitive files ──
+<FilesMatch "(^\.htaccess|\.(json|log|md|py|sql|bak|ini|sh))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ── Keep PHP uploads from executing ──
+<IfModule mod_rewrite.c>
+  RewriteRule ^uploads/.*\.(php|phtml|php[0-9])$ - [F,L]
+</IfModule>

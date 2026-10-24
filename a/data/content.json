@@ -1,0 +1,247 @@
+{
+    "site": {
+        "title": "Khawar Enterprises",
+        "tagline": "Coal & Wood Supply Solutions",
+        "phone": "+92-316-6784819",
+        "whatsapp": "+923166784819",
+        "email": "info@khawarenterprises.org",
+        "address": "Multan, Pakistan",
+        "hours": "Monday – Saturday: 9:00 AM – 6:00 PM",
+        "founded": "2010",
+        "logo_type": "text",
+        "logo_img": "",
+        "logo_icon": "🔥"
+    },
+    "hero": {
+        "badge": "Industrial Fuel Supply — Multan, Pakistan",
+        "headline1": "Pure Coal.",
+        "headline2": "Real Fire.",
+        "subline": "Industrial Boiler Fuel Specialists",
+        "description": "We supply premium coal and Keekar firewood to textile mills and factories across Pakistan. Truck-based delivery, verified quality and transparent billing.",
+        "cta1_text": "Get a Quote",
+        "cta2_text": "View Products",
+        "bg_img": "",
+        "stat1_num": "500+",
+        "stat1_lbl": "Trucks Delivered",
+        "stat2_num": "50+",
+        "stat2_lbl": "Industrial Clients",
+        "stat3_num": "15+",
+        "stat3_lbl": "Years Experience",
+        "stat4_num": "4",
+        "stat4_lbl": "Coal Grades"
+    },
+    "about": {
+        "label": "Who We Are",
+        "headline": "Your Industrial Fuel Supply Partner",
+        "para1": "Khawar Enterprises is a specialist coal and wood supply company in Multan, focused on bulk fuel delivery for industrial steam boilers. We work directly with factories, textile mills and manufacturing units.",
+        "para2": "We handle the entire supply chain — sourcing premium coal and firewood from verified suppliers, then delivering it to your factory gate by truck. Every load is quality-checked before dispatch.",
+        "box_title": "Trusted by Pakistani Industries",
+        "box_text": "From textile mills to cement factories — we are the preferred supply partner for businesses that need reliable, consistent-quality fuel.",
+        "box_since": "Since 2010 — 15+ Years of Experience",
+        "p1_icon": "🔥",
+        "p1_title": "Quality Verified",
+        "p1_text": "Every batch checked before dispatch",
+        "p2_icon": "🚛",
+        "p2_title": "On-Time Delivery",
+        "p2_text": "Reliable truck fleet, PO-based scheduling",
+        "p3_icon": "📋",
+        "p3_title": "Transparent Billing",
+        "p3_text": "Clear bilty with per-ton breakdowns",
+        "p4_icon": "🤝",
+        "p4_title": "Flexible Terms",
+        "p4_text": "Custom payment terms for regular clients"
+    },
+    "coal": {
+        "label": "Coal Products",
+        "headline": "Industrial Coal — Char Grades",
+        "description": "Char grades of coal matched to your boiler specifications and budget. All grades available in bulk truck loads.",
+        "footer_note": "Coal is supplied in 15–45 ton trucks. Minimum order: 1 truck load.",
+        "products": [
+            {
+                "badge": "Premium",
+                "icon_emoji": "🪨",
+                "name": "South African Coal",
+                "desc": "High-grade imported coal with superior calorific value and very low ash content. Ideal for high-demand industrial boilers requiring maximum efficiency.",
+                "bg_color": "#1a0a00",
+                "img": "",
+                "icon_img": "",
+                "spec1_k": "Calorific Value",
+                "spec1_v": "5,500–6,000 kcal/kg",
+                "spec2_k": "Ash Content",
+                "spec2_v": "Low (<15%)",
+                "spec3_k": "Moisture",
+                "spec3_v": "Very Low",
+                "spec4_k": "Unit",
+                "spec4_v": "Per Ton",
+                "icon": "coal"
+            },
+            {
+                "badge": "",
+                "icon_emoji": "🪨",
+                "name": "Baluchistan Coal",
+                "desc": "Reliable medium-grade coal widely used across Pakistan's industrial sector. Excellent balance of calorific value and cost-effectiveness.",
+                "bg_color": "#160e00",
+                "img": "",
+                "icon_img": "",
+                "spec1_k": "Calorific Value",
+                "spec1_v": "4,500–5,200 kcal/kg",
+                "spec2_k": "Ash Content",
+                "spec2_v": "Medium",
+                "spec3_k": "Availability",
+                "spec3_v": "High",
+                "spec4_k": "Unit",
+                "spec4_v": "Per Ton",
+                "icon": "mountain"
+            },
+            {
+                "badge": "",
+                "icon_emoji": "🪨",
+                "name": "Local Punjab Coal",
+                "desc": "Economy-grade locally sourced coal suitable for budget-sensitive operations. Best for boilers with lower calorific requirements.",
+                "bg_color": "#0f0f0f",
+                "img": "",
+                "icon_img": "",
+                "spec1_k": "Calorific Value",
+                "spec1_v": "3,500–4,200 kcal/kg",
+                "spec2_k": "Ash Content",
+                "spec2_v": "Higher",
+                "spec3_k": "Price Point",
+                "spec3_v": "Most Affordable",
+                "spec4_k": "Unit",
+                "spec4_v": "Per Ton",
+                "icon": "factory"
+            },
+            {
+                "badge": "Import",
+                "icon_emoji": "🪨",
+                "name": "Imported Premium Coal",
+                "desc": "Export-quality premium coal for high-efficiency boiler systems. Minimal impurities, consistent burn profile.",
+                "bg_color": "#1a0800",
+                "img": "",
+                "icon_img": "",
+                "spec1_k": "Calorific Value",
+                "spec1_v": "6,000+ kcal/kg",
+                "spec2_k": "Ash Content",
+                "spec2_v": "Very Low (<10%)",
+                "spec3_k": "Moisture",
+                "spec3_v": "Minimal",
+                "spec4_k": "Unit",
+                "spec4_v": "Per Ton",
+                "icon": "globe"
+            }
+        ]
+    },
+    "wood": {
+        "label": "Wood Products",
+        "headline": "Acacia & Mix Wood — Industrial Grade",
+        "description": "Premium firewood specifically selected for industrial boilers. Available in Mann units with truck-based delivery.",
+        "footer_note": "Wood is supplied in truck loads. Labor charges may apply as per delivery terms.",
+        "products": [
+            {
+                "badge": "",
+                "img": "",
+                "icon_img": "",
+                "icon_emoji": "🪵",
+                "name": "Mix Wood",
+                "desc": "A general-purpose hardwood blend for standard industrial boilers — a cost-effective option for high-volume requirements.",
+                "bg_color": "#120800",
+                "spec1_k": "Wood Type",
+                "spec1_v": "Mixed Hardwood",
+                "spec2_k": "Best For",
+                "spec2_v": "General boiler use",
+                "spec3_k": "Burn Profile",
+                "spec3_v": "Medium heat, long burn",
+                "spec4_k": "Unit",
+                "spec4_v": "Per Mann",
+                "icon": "logs"
+            },
+            {
+                "badge": "Premium",
+                "img": "",
+                "icon_img": "",
+                "icon_emoji": "🌳",
+                "name": "Acacia Wood — Dry (Keekar)",
+                "desc": "Fully dried Acacia (Keekar) — the premium choice for industrial boilers. High heat value, clean burn and significantly lower smoke.",
+                "bg_color": "#0e0900",
+                "spec1_k": "Wood Type",
+                "spec1_v": "Acacia — Dried",
+                "spec2_k": "Heat Value",
+                "spec2_v": "High",
+                "spec3_k": "Smoke",
+                "spec3_v": "Low (cleaner burn)",
+                "spec4_k": "Unit",
+                "spec4_v": "Per Mann",
+                "icon": "sun"
+            },
+            {
+                "badge": "",
+                "img": "",
+                "icon_img": "",
+                "icon_emoji": "🌿",
+                "name": "Acacia Wood — Wet (Fresh Cut)",
+                "desc": "Fresh-cut Acacia (Keekar) with natural moisture. Extended burn duration at lower heat — a budget-friendly alternative.",
+                "bg_color": "#0a0d06",
+                "spec1_k": "Wood Type",
+                "spec1_v": "Acacia — Fresh Cut",
+                "spec2_k": "Heat Value",
+                "spec2_v": "Medium",
+                "spec3_k": "Burn Duration",
+                "spec3_v": "Extended",
+                "spec4_k": "Unit",
+                "spec4_v": "Per Mann",
+                "icon": "drop"
+            }
+        ]
+    },
+    "why": {
+        "label": "Why Choose Us?",
+        "headline": "The Khawar Enterprises Difference",
+        "cards": [
+            {
+                "icon": "🚛",
+                "title": "PO-Based Bulk Supply",
+                "text": "Large purchase orders are fulfilled on schedule. Send your PO and the required delivery timeline — we handle the rest."
+            },
+            {
+                "icon": "⚖️",
+                "title": "Accurate Weighment",
+                "text": "Every truck is weighed at loading. The bilty is issued with a clear per-ton breakdown, and factory weighment is respected."
+            },
+            {
+                "icon": "🔥",
+                "title": "Quality Consistency",
+                "text": "All coal and wood is pre-screened before dispatch. Our vendors are vetted for consistent grade quality."
+            },
+            {
+                "icon": "📊",
+                "title": "Transparent Billing",
+                "text": "Every bilty clearly shows weight, rate, delivery charges and total. No hidden charges."
+            },
+            {
+                "icon": "📞",
+                "title": "Dedicated Support",
+                "text": "A dedicated contact for your account — truck status updates and delivery confirmations during business hours."
+            },
+            {
+                "icon": "💳",
+                "title": "Flexible Payment",
+                "text": "We understand industrial cash-flow cycles. Custom credit terms for established clients."
+            }
+        ]
+    },
+    "contact": {
+        "label": "Get in Touch",
+        "headline": "Tell Us Your Fuel Requirements",
+        "subtext": "Send your requirement or PO details — you'll get availability and pricing within 24 hours."
+    },
+    "footer": {
+        "tagline": "Industrial-grade coal and firewood supply for Pakistan's manufacturing industry.",
+        "copy": "© 2026 Khawar Enterprises. All rights reserved."
+    },
+    "seo": {
+        "meta_title": "Khawar Enterprises — Industrial Coal & Firewood Supplier in Pakistan",
+        "meta_description": "Industrial coal & firewood supplier in Pakistan — South African, Baluchistan & Punjab coal plus Acacia wood. Bulk truck delivery to your factory gate.",
+        "meta_keywords": "coal supplier Pakistan, industrial coal Multan, south african coal price Pakistan, baluchistan coal, keekar wood boiler fuel, firewood supplier Pakistan, coal rate per ton, steam boiler coal, firewood Multan",
+        "og_image": "/assets/og-image.png"
+    }
+}
